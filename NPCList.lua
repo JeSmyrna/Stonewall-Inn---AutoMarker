@@ -432,10 +432,10 @@ addToDefaultNpcsToMark(L["Naxxramas"], "military_horse_4", {
 })
 
 addToDefaultNpcsToMark(L["Naxxramas"], "military_razuvious", {
-  ["0xF1300041A304A65F"]  = DIAMOND, -- Deathknight Understudy, left far
-  ["0xF1300041A304A660"]  = STAR, -- Deathknight Understudy, right far
-  ["0xF1300041A304A661"]  = TRIANGLE, -- Deathknight Understudy, left close
-  ["0xF1300041A304A662"]  = CIRCLE, -- Deathknight Understudy, right close
+  ["0xF1300041A304A65F"]  = MOON, -- Deathknight Understudy, left far
+  ["0xF1300041A304A660"]  = CIRCLE, -- Deathknight Understudy, right far
+  ["0xF1300041A304A661"]  = STAR, -- Deathknight Understudy, left close
+  ["0xF1300041A304A662"]  = DIAMOND, -- Deathknight Understudy, right close
   ["0xF130003EBD01598C"]  = SKULL, -- Instructor Razuvious
 })
 
@@ -589,15 +589,15 @@ addToDefaultNpcsToMark(L["Naxxramas"], "construct_entrance_patrol", {
 })
 
 addToDefaultNpcsToMark(L["Naxxramas"], "construct_central_left", {
-  ["0xF130003E920158CF"]  = SKULL, -- Bile Retcher
-  ["0xF130003E910158CA"]  = CROSS, -- Patchwork Golem
-  ["0xF130003E910158C9"]  = SQUARE, -- Patchwork Golem
+  ["0xF130003E920158CF"]  = DIAMOND, -- Bile Retcher
+  ["0xF130003E910158CA"]  = TRIANGLE, -- Patchwork Golem
+  ["0xF130003E910158C9"]  = CIRCLE, -- Patchwork Golem
 })
 
 addToDefaultNpcsToMark(L["Naxxramas"], "construct_central_right", {
-  ["0xF130003E920158D0"]  = SKULL, -- Bile Retcher
-  ["0xF130003E910158CB"]  = CROSS, -- Patchwork Golem
-  ["0xF130003E910158CC"]  = SQUARE, -- Patchwork Golem
+  ["0xF130003E920158D0"]  = DIAMOND, -- Bile Retcher
+  ["0xF130003E910158CB"]  = TRIANGLE, -- Patchwork Golem
+  ["0xF130003E910158CC"]  = CIRCLE, -- Patchwork Golem
 })
 
 addToDefaultNpcsToMark(L["Naxxramas"], "construct_central", {
@@ -1834,10 +1834,10 @@ addToDefaultNpcsToMark(L["Blackwing Lair"], "lab3", {
 })
 
 addToDefaultNpcsToMark(L["Blackwing Lair"], "wyrmguard1", {
-  ["0xF1300030AD014A6D"] = DIAMOND,
-  ["0xF1300030AC014A70"] = SKULL,
+  ["0xF1300030AD014A6D"] = SKULL,
+  ["0xF1300030AC014A70"] = DIAMOND, --Wyrmguard Big
   ["0xF1300030AD014A6E"] = CROSS,
-  ["0xF1300030AD014A6F"] = CIRCLE,
+  ["0xF1300030AD014A6F"] = SQUARE,
 })
 
 addToDefaultNpcsToMark(L["Blackwing Lair"], "lab4", {
