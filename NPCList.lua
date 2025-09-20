@@ -682,16 +682,16 @@ addToDefaultNpcsToMark(L["Naxxramas"], "construct_grobb_far", {
 defaultNpcsToMark[L["Ahn'Qiraj"]] = {}
 
 addToDefaultNpcsToMark(L["Ahn'Qiraj"], "entrance_1", {
-  ["0xF130003BA0015613"]  = SKULL, -- Anubisath Sentinel
+  ["0xF130003BA0015613"]  = STAR, -- Anubisath Sentinel
   ["0xF130003BA0015610"]  = MOON, -- Anubisath Sentinel
-  ["0xF130003BA0015611"]  = SQUARE, -- Anubisath Sentinel
-  ["0xF130003BA0015612"]  = CROSS, -- Anubisath Sentinel
+  ["0xF130003BA0015611"]  = CIRCLE, -- Anubisath Sentinel
+  ["0xF130003BA0015612"]  = SQUARE, -- Anubisath Sentinel
 })
 
 addToDefaultNpcsToMark(L["Ahn'Qiraj"], "entrance_2", {
-  ["0xF130003BA001560C"]  = SKULL, -- Anubisath Sentinel
-  ["0xF130003BA001560D"]  = CROSS, -- Anubisath Sentinel
-  ["0xF130003BA001560F"]  = MOON, -- Anubisath Sentinel
+  ["0xF130003BA001560C"]  = STAR, -- Anubisath Sentinel
+  ["0xF130003BA001560D"]  = MOON, -- Anubisath Sentinel
+  ["0xF130003BA001560F"]  = CIRCLE, -- Anubisath Sentinel
   ["0xF130003BA001560E"]  = SQUARE, -- Anubisath Sentinel
 })
 addToDefaultNpcsToMark(L["Ahn'Qiraj"], "entrance_patrols", {
@@ -786,8 +786,8 @@ addToDefaultNpcsToMark(L["Ahn'Qiraj"], "guardian_4", {
 addToDefaultNpcsToMark(L["Ahn'Qiraj"], "sartura", {
   ["0xF130003E70015662"]  = CROSS, -- Sartura's Royal Guard
   ["0xF130003E70015661"]  = SQUARE, -- Sartura's Royal Guard
-  ["0xF130003E70015663"]  = MOON, -- Sartura's Royal Guard
-  ["0xF130003C9C015660"]  = SKULL, -- Battleguard Sartura
+  ["0xF130003E70015663"]  = SKULL, -- Sartura's Royal Guard
+  ["0xF130003C9C015660"]  = MOON, -- Battleguard Sartura
 })
 
 addToDefaultNpcsToMark(L["Ahn'Qiraj"], "soldiers", {
@@ -1294,10 +1294,10 @@ addToDefaultNpcsToMark(L["Emerald Sanctum"], "dreamer_pack_left_2", {
 
 addToDefaultNpcsToMark(L["Emerald Sanctum"], "wyrmkin_pack_left_1", {
   ["0xF13000ED47273A1C"] = SQUARE, -- sanctum dragonkin
-  ["0xF13000ED4A273A1A"] = MOON, -- sanctum scalebane
+  ["0xF13000ED4A273A1A"] = DIAMOND, -- sanctum scalebane
   ["0xF13000ED49273A18"] = CROSS, -- sanctum wyrmkin
   ["0xF13000EF1C275495"] = SKULL, -- sanctum supressor
-  ["0xF13000ED47273A1E"] = STAR, -- sanctum dragonkin
+  ["0xF13000ED47273A1E"] = CIRCLE, -- sanctum dragonkin
 
   [errenius] = errenius_mark, -- increase chance of spotting him early
 })
@@ -1306,10 +1306,10 @@ addToDefaultNpcsToMark(L["Emerald Sanctum"], "wyrmkin_pack_left_2", {
   ["0xF13000ED46273A26"] = UNMARKED, -- sanctum dreamer
   ["0xF13000ED46273A1F"] = UNMARKED, -- sanctum dreamer
   ["0xF13000ED49273A25"] = SKULL, -- sanctum wyrmkin
-  ["0xF13000ED49273A24"] = STAR, -- sanctum wyrmkin
+  ["0xF13000ED49273A24"] = CROSS, -- sanctum wyrmkin
   ["0xF13000ED46273A20"] = UNMARKED, -- sanctum dreamer
   ["0xF13000ED46273A27"] = UNMARKED, -- sanctum dreamer
-  ["0xF13000ED48273A19"] = CROSS, -- sanctum wrym
+  ["0xF13000ED48273A19"] = SQUARE, -- sanctum wrym
   [errenius] = errenius_mark, -- increase chance of spotting him early
 })
 
@@ -1333,10 +1333,10 @@ addToDefaultNpcsToMark(L["Emerald Sanctum"], "wyrmkin_pack_left_3", {
   ["0xF13000ED46273A57"] = UNMARKED, -- sanctum dreamer
   ["0xF13000ED46273A58"] = UNMARKED, -- sanctum dreamer
   ["0xF13000ED46273A59"] = UNMARKED, -- sanctum dreamer
-  ["0xF13000ED4A273A48"] = CROSS, -- sanctum scalebane
-  ["0xF13000ED4A273A49"] = SKULL, -- sanctum scalebane
-  ["0xF13000ED49273A47"] = STAR, -- sanctum wyrmkin -- ??
-  ["0xF13000ED47273A1C"] = SQUARE, -- sanctum dragonkin
+  ["0xF13000ED4A273A48"] = DIAMOND, -- sanctum scalebane
+  ["0xF13000ED4A273A49"] = SQUARE, -- sanctum scalebane
+  ["0xF13000ED49273A47"] = SKULL, -- sanctum wyrmkin -- ??
+  ["0xF13000ED47273A1C"] = CROSS, -- sanctum dragonkin
 
   [errenius] = errenius_mark, -- increase chance of spotting him early
 })
@@ -1364,9 +1364,9 @@ addToDefaultNpcsToMark(L["Emerald Sanctum"], "wyrmkin_pack_right_3", {
   ["0xF13000ED462754A1"] = UNMARKED, -- sanctum dreamer
   ["0xF13000ED462754A2"] = UNMARKED, -- sanctum dreamer
   ["0xF13000EF1C275499"] = SKULL, -- sanctum supressor
-  ["0xF13000ED4727549C"] = STAR, -- sanctum dragonkin
-  ["0xF13000ED4A27549D"] = CROSS, -- sanctum scalebane
-  ["0xF13000ED4A27549B"] = SQUARE, -- sanctum scalebane
+  ["0xF13000ED4727549C"] = CROSS, -- sanctum dragonkin
+  ["0xF13000ED4A27549D"] = SQUARE, -- sanctum scalebane
+  ["0xF13000ED4A27549B"] = DIAMOND, -- sanctum scalebane
 })
 
 addToDefaultNpcsToMark(L["Emerald Sanctum"], "solnius", {
@@ -1453,7 +1453,7 @@ addToDefaultNpcsToMark(L["Molten Core"], "baron_pack_1", {
 })
 
 addToDefaultNpcsToMark(L["Molten Core"], "baron_pack_2", {
-  ["0xF130002F2C016480"] = CIRCLE,
+  ["0xF130002F2C016480"] = SQUARE,
   ["0xF130002F2C01647E"] = DIAMOND,
   ["0xF130002D9301647F"] = CROSS,
   ["0xF130002D9201647D"] = SKULL,
@@ -1463,18 +1463,18 @@ addToDefaultNpcsToMark(L["Molten Core"], "baron_pack_2", {
 addToDefaultNpcsToMark(L["Molten Core"], "baron_pack_3", {
   ["0xF130002D9301649C"] = CROSS,
   ["0xF130002D9201649A"] = SKULL,
-  ["0xF130002F4401649B"] = CIRCLE,
+  ["0xF130002F4401649B"] = SQUARE,
   ["0xF130002FE800DD20"] = STAR, -- shazzrah
 })
 
 addToDefaultNpcsToMark(L["Molten Core"], "baron_pack_4", {
   ["0xF130002D9200DD92"] = SKULL,
-  ["0xF130002F4400DD93"] = CIRCLE,
+  ["0xF130002F4400DD93"] = SQUARE,
   ["0xF130002D9300DD94"] = CROSS,
 })
 
 addToDefaultNpcsToMark(L["Molten Core"], "baron_pack_5", {
-  ["0xF130002F2C00DDD9"] = CIRCLE,
+  ["0xF130002F2C00DDD9"] = SQUARE,
   ["0xF130002D9300DDDA"] = CROSS,
   ["0xF130002D9200DDD8"] = SKULL,
   ["0xF130002F2C00DDDB"] = DIAMOND,
@@ -1491,13 +1491,13 @@ addToDefaultNpcsToMark(L["Molten Core"], "sulfuron", {
 addToDefaultNpcsToMark(L["Molten Core"], "golemag_shadowforge_pack", {
   ["0xF130002D9300DDC7"] = SKULL,
   ["0xF130002F2C00DDAF"] = DIAMOND,
-  ["0xF130002F2C00DDC8"] = CIRCLE,
+  ["0xF130002F2C00DDC8"] = SQUARE,
   ["0xF130002D9200DDAE"] = CROSS,
 })
 
 addToDefaultNpcsToMark(L["Molten Core"], "twin_golems", {
-  ["0xF13000FDFC278C2C"] = CROSS,
-  ["0xF13000FDFD278C2D"] = SKULL, -- this guy starts without the debuff
+  ["0xF13000FDFC278C2C"] = SQUARE,
+  ["0xF13000FDFD278C2D"] = TRIANGLE, -- this guy starts without the debuff
 })
 
 addToDefaultNpcsToMark(L["Molten Core"], "shadowforge_left_1", {
