@@ -589,15 +589,15 @@ addToDefaultNpcsToMark(L["Naxxramas"], "construct_entrance_patrol", {
 })
 
 addToDefaultNpcsToMark(L["Naxxramas"], "construct_central_left", {
-  ["0xF130003E920158CF"]  = DIAMOND, -- Bile Retcher
-  ["0xF130003E910158CA"]  = TRIANGLE, -- Patchwork Golem
-  ["0xF130003E910158C9"]  = CIRCLE, -- Patchwork Golem
+  ["0xF130003E920158CF"]  = SKULL, -- Bile Retcher
+  ["0xF130003E910158CA"]  = CROSS, -- Patchwork Golem
+  ["0xF130003E910158C9"]  = SQUARE, -- Patchwork Golem
 })
 
 addToDefaultNpcsToMark(L["Naxxramas"], "construct_central_right", {
-  ["0xF130003E920158D0"]  = DIAMOND, -- Bile Retcher
-  ["0xF130003E910158CB"]  = TRIANGLE, -- Patchwork Golem
-  ["0xF130003E910158CC"]  = CIRCLE, -- Patchwork Golem
+  ["0xF130003E920158D0"]  = SKULL, -- Bile Retcher
+  ["0xF130003E910158CB"]  = CROSS, -- Patchwork Golem
+  ["0xF130003E910158CC"]  = SQUARE, -- Patchwork Golem
 })
 
 addToDefaultNpcsToMark(L["Naxxramas"], "construct_central", {
