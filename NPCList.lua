@@ -1561,14 +1561,14 @@ addToDefaultNpcsToMark(L["Molten Core"], "shadowforge_right_5", {
 })
 
 addToDefaultNpcsToMark(L["Molten Core"], "domo", {
-  ["0xF130002D90278D51"] = DIAMOND, -- elite
-  ["0xF130002D90278D52"] = STAR, -- elite
-  ["0xF130002D90278D53"] = CIRCLE, -- elite
-  ["0xF130002D90278D54"] = TRIANGLE, -- elite
+  ["0xF130002D90278D51"] = CIRCLE, -- elite
+  ["0xF130002D90278D52"] = SQUARE, -- elite
+  ["0xF130002D90278D53"] = DIAMOND, -- elite
+  ["0xF130002D90278D54"] = CROSS, -- elite
   ["0xF130002D8F278D55"] = SKULL, -- healer
-  ["0xF130002D8F278D56"] = SQUARE, -- healer
+  ["0xF130002D8F278D56"] = TRIANGLE, -- healer
   ["0xF130002D8F278D57"] = MOON, -- healer
-  ["0xF130002D8F278D58"] = CROSS, -- healer
+  ["0xF130002D8F278D58"] = STAR, -- healer
   ["0xF130002EF2278D50"] = UNMARKED, -- domo
 })
 
