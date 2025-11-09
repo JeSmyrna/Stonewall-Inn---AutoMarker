@@ -1397,8 +1397,8 @@ addToDefaultNpcsToMark(L["Molten Core"], "giants2", {
 
 addToDefaultNpcsToMark(L["Molten Core"], "lucifron", {
   ["0xF130002F5700DD1F"] = CROSS,
-  ["0xF130002F5600DD1D"] = SKULL,
-  ["0xF130002F5700DD1E"] = SQUARE,
+  ["0xF130002F5600DD1D"] = SQUARE,
+  ["0xF130002F5700DD1E"] = SKULL,
 })
 
 addToDefaultNpcsToMark(L["Molten Core"], "imp_surgers", {
