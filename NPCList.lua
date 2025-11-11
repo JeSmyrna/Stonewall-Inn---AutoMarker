@@ -513,10 +513,10 @@ addToDefaultNpcsToMark(L["Naxxramas"], "military_ring_acolyte_3", {
 })
 
 addToDefaultNpcsToMark(L["Naxxramas"], "military_ring_four_horsemen", {
-  ["0xF130003EBE015AB3"]  = SKULL, -- Highlord Mograine
-  ["0xF130003EC0015AB0"]  = CROSS, -- Thane Korth'azz
-  ["0xF130003EBF015AB2"]  = SQUARE, -- Sir Zeliak
-  ["0xF130003EC1015AB1"]  = MOON, -- Lady Blaumeux
+  ["0xF130003EBE015AB3"]  = UNMARKED, -- Highlord Mograine
+  ["0xF130003EC0015AB0"]  = SKULL, -- Thane Korth'azz
+  ["0xF130003EBF015AB2"]  = UNMARKED, -- Sir Zeliak
+  ["0xF130003EC1015AB1"]  = UNMARKED, -- Lady Blaumeux
 })
 
 ----/////////////// PLAGUE ///////////////
