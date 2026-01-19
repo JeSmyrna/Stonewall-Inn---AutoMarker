@@ -1523,10 +1523,10 @@ addToDefaultNpcsToMark(L["Molten Core"], "shadowforge_left_4", {
 })
 
 addToDefaultNpcsToMark(L["Molten Core"], "shadowforge_left_5", {
-  ["0xF13000CBB8278CC4"] = SKULL,
-  ["0xF13000CBB6278CC1"] = SQUARE,
-  ["0xF13000CBB8278CC3"] = CROSS,
-  ["0xF13000CBB6278CC2"] = MOON,
+  ["0xF13000CBB8278CC4"] = SQUARE, -- Skull
+  ["0xF13000CBB6278CC1"] = SKULL, -- Square
+  ["0xF13000CBB8278CC3"] = STAR, -- Cross
+  ["0xF13000CBB6278CC2"] = CROSS, -- Moon
 })
 
 addToDefaultNpcsToMark(L["Molten Core"], "shadowforge_right_1", {
@@ -1553,10 +1553,10 @@ addToDefaultNpcsToMark(L["Molten Core"], "shadowforge_right_4", {
 })
 
 addToDefaultNpcsToMark(L["Molten Core"], "shadowforge_right_5", {
-  ["0xF13000CBB6278CC0"] = MOON,
-  ["0xF13000CBB6278CBF"] = SQUARE,
-  ["0xF13000CBB7278CBD"] = CROSS,
-  ["0xF13000CBB7278CBE"] = SKULL,
+  ["0xF13000CBB6278CC0"] = SKULL, -- Moon
+  ["0xF13000CBB6278CBF"] = CROSS, -- square
+  ["0xF13000CBB7278CBD"] = SQUARE, -- cross
+  ["0xF13000CBB7278CBE"] = STAR, -- skull
 })
 
 addToDefaultNpcsToMark(L["Molten Core"], "domo", {
