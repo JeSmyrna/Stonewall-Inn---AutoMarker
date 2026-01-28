@@ -1492,7 +1492,7 @@ addToDefaultNpcsToMark(L["Molten Core"], "baron_pack_7", {
 })
 
 addToDefaultNpcsToMark(L["Molten Core"], "sulfuron_pack_1", {
-  ["0xF130002FC200DD9C"] = SQUARE, --Lava Elemental
+  ["0xF130002F2C00DD9C"] = SQUARE, --Lava Elemental
   ["0xF130002D9300DD9B"] = SKULL, --Flameguard
   ["0xF130002F2C00DD9A"] = DIAMOND, --Lava Elemental
   ["0xF130002D9200DD99"] = CROSS, --Firewalker
