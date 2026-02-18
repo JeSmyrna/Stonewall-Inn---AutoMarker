@@ -1444,6 +1444,13 @@ addToDefaultNpcsToMark(L["Molten Core"], "garr", {
   ["0xF130002F4300DD22"] = TRIANGLE,
 })
 
+addToDefaultNpcsToMark(L["Molten Core"], "shazzrah_pack_1", {
+  ["0xF130002D92016484"] = CROSS, -- Firewalker
+  ["0xF130002F2C016487"] = SQUARE, -- Lava Elemental
+  ["0xF130002D93016486"] = SKULL, -- Flameguard
+  ["0xF130002FC2016485"] = DIAMOND, --Lava Elemental
+})
+
 addToDefaultNpcsToMark(L["Molten Core"], "baron_pack_1", {
   ["0xF130002D93016498"] = CROSS,
   ["0xF130002F2C016497"] = SQUARE,
@@ -1480,9 +1487,9 @@ addToDefaultNpcsToMark(L["Molten Core"], "baron_pack_5", {
 })
 
 addToDefaultNpcsToMark(L["Molten Core"], "baron_pack_6", {
-  ["0xF130002D9201648D"] = CROSS, --Firewalker
+  ["0xF130002D9201648D"] = SKULL, --Firewalker
   ["0xF130002F4401648E"] = SQUARE, --Lava Reaver
-  ["0xF130002D9301648F"] = SKULL, --Flameguard
+  ["0xF130002D9301648F"] = CROSS, --Flameguard
 })
 
 addToDefaultNpcsToMark(L["Molten Core"], "baron_pack_7", {
@@ -1518,6 +1525,13 @@ addToDefaultNpcsToMark(L["Molten Core"], "golemag_shadowforge_pack", {
   ["0xF130002F2C00DDAF"] = DIAMOND,
   ["0xF130002F2C00DDC8"] = SQUARE,
   ["0xF130002D9200DDAE"] = CROSS,
+})
+
+addToDefaultNpcsToMark(L["Molten Core"], "majordomo_patrol", {
+  ["0xF130002D9900DE1F"] = CIRCLE, -- Core Hound
+  ["0xF130002F4500DE12"] = DIAMOND, -- Surger
+  ["0xF130002D9900DE1D"] = MOON, -- Core Hound
+  ["0xF130002D9900DE1B"] = TRIANGLE, -- Core Hound
 })
 
 addToDefaultNpcsToMark(L["Molten Core"], "golemag_pack_01", {
