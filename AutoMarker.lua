@@ -26,10 +26,16 @@ local function c(text, color)
 end
 
 local super_ver = SUPERWOW_VERSION and tonumber(SUPERWOW_VERSION)
--- if not (super_ver and super_ver >= 1.4) then -- don't need to be so strict if we're not using raw combatlog
-if not SetAutoloot then
+local np_major, np_minor, np_patch
+if GetNampowerVersion then
+  np_major, np_minor, np_patch = GetNampowerVersion()
+end
+local use_nampower = np_major and (np_major > 2 or (np_major == 2 and np_minor >= 39))
+local use_superwow = not use_nampower and SetAutoloot
+
+if not use_superwow and not use_nampower then
   StaticPopupDialogs["NO_SUPERWOW_AUTOLOOT"] = {
-    text = (c("AutoMarker",color.yellow)..c(" requires SuperWoW 1.4 or greater to operate.",color.red)),
+    text = (c("AutoMarker",color.yellow)..c(" requires SuperWoW 1.4+ or nampower 2.39+ to operate.",color.red)),
     button1 = TEXT(OKAY),
     timeout = 0,
     whileDead = 1,
@@ -507,6 +513,33 @@ local temporary_mobs = {
     queue = {},
     -- reverse = true,
   },
+  ["Onyxian Hatcher"] = {
+    minCount = 2,
+    pack = "onyxia_hatchers",
+    raid = L["Onyxia's Lair"],
+    live_mark = true,
+    queue = {},
+  },
+  ["Withermaw Illuminator"] = {
+    minCount = 2,
+    pack = "chieftain_illuminators",
+    raid = L["Timbermaw Hold"],
+    queue = {},
+  },
+  ["Withermaw Shadowkeeper"] = {
+    minCount = 2,
+    pack = "chieftain_shadowkeepers",
+    raid = L["Timbermaw Hold"],
+    live_mark = true,
+    queue = {},
+  },
+  ["Withermaw Corrupter"] = {
+    minCount = 2,
+    pack = "ursol_corrupters",
+    raid = L["Timbermaw Hold"],
+    queue = {},
+    reverse = true,
+  },
   ["Buru Egg"] = {
     minCount = 6,
     pack = "buru_eggs",
@@ -660,15 +693,12 @@ autoMarker:SetScript("OnUpdate", AMUpdate)
 
 autoMarker:RegisterEvent("ADDON_LOADED")
 autoMarker:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
-autoMarker:RegisterEvent("UNIT_MODEL_CHANGED") -- mob respawn
-autoMarker:RegisterEvent("PLAYER_REGEN_DISABLED") -- mob respawn
-autoMarker:RegisterEvent("PLAYER_ENTERING_WORLD") -- mob respawn
-autoMarker:RegisterEvent("PLAYER_REGEN_ENABLED") -- mob respawn
-autoMarker:RegisterEvent("UNIT_CASTEVENT") -- mob respawn
-autoMarker:RegisterEvent("ZONE_CHANGED_NEW_AREA") -- mob respawn
--- autoMarker:RegisterEvent("CHAT_MSG_MONSTER_YELL") -- bigwigs should handle this instead
--- autoMarker:RegisterEvent("RAW_COMBATLOG") -- bigwigs should handle this instead
+autoMarker:RegisterEvent("PLAYER_REGEN_DISABLED")
+autoMarker:RegisterEvent("PLAYER_ENTERING_WORLD")
+autoMarker:RegisterEvent("PLAYER_REGEN_ENABLED")
+autoMarker:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 autoMarker:RegisterEvent("CHAT_MSG_ADDON") -- slow corehound mark swap
+autoMarker:RegisterEvent(use_nampower and "UNIT_MODEL_CHANGED_GUID" or "UNIT_MODEL_CHANGED")
 
 autoMarker.TriggerEvent = function (self,event,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10)
   if autoMarker[event] then
@@ -856,20 +886,7 @@ end
 
 --]]
 
-function autoMarker:UNIT_CASTEVENT(caster,target,action,spell_id,cast_time)
-  -- if buru egg exploded
-  if spell_id == 19593 then
-    if not AutoMarkerDB.temp_values.buru_egg_queue then AutoMarkerDB.temp_values.buru_egg_queue = {} end
-    tinsert(AutoMarkerDB.temp_values.buru_egg_queue, GetRaidTargetIndex(arg1))
-    return
-  end
-
-  -- incantagos affinity, channels on an affinity on spawn we can use to mark it
-  if action == "CHANNEL" and spell_id == 51187 then
-    MarkUnit(target,8)
-    return
-  end
-end
+-- buru egg death tracking now handled via UNIT_FLAGS
 
 -- todo, separate this into zones and load only each zone
 local patterns = {
@@ -889,9 +906,13 @@ local patterns = {
   rupturan_fragment           = "^0xF13000EA3527",
   rupturan_exile              = "^0xF13000EA3807",
   mephistroth_doomguards      = "^0xF130016C9827",
+  onyxia_hatchers             = "^0xF13000C3E027",
+  chieftain_illuminators      = "^0xF13000F5DE27",
+  chieftain_shadowkeepers     = "^0xF13000F5DF27",
   rupturan_dirt_mound         = "^0xF13000EA3427",
   naxx_plague_gargs           = "^0xF130003F2801",
   buru_eggs                   = "^0xF130003C9A27",
+  ursol_corrupters            = "^0xF13000732827",
 }
 
 -- start with skull unless reversed
@@ -914,6 +935,15 @@ local function TryPatterns(guid,...)
   for i = 1, arg.n do
     if sfind(guid, arg[i]) then return true end
   end
+end
+
+-- nampower _GUID event wrappers
+function autoMarker:UNIT_MODEL_CHANGED_GUID(guid)
+  self:UNIT_MODEL_CHANGED(guid)
+end
+
+function autoMarker:UNIT_FLAGS_GUID(guid)
+  self:UNIT_FLAGS(guid)
 end
 
 -- Workhorse, detects when a unit model is loaded in the client.
@@ -958,6 +988,14 @@ function autoMarker:UNIT_MODEL_CHANGED(guid,debug_id,debug_name)
       name = "Manascale Ley-Seeker"
     -- mid-fight ley-seekers have a different guid base of 0xF14
 
+    -- incantagos affinity - detect by guid pattern
+    elseif not GetRaidTargetIndex(guid) and TryPatterns(guid,
+        patterns.incantagos_affinity_mana, patterns.incantagos_affinity_black,
+        patterns.incantagos_affinity_blue, patterns.incantagos_affinity_green,
+        patterns.incantagos_affinity_red, patterns.incantagos_affinity_crystal) then
+      MarkUnit(guid,8)
+      return
+
     -- sanv stalkers
     elseif not GetRaidTargetIndex(guid) and TryPatterns(guid, patterns.sanv_riftstalker) then
       self:ApplyNextMark(guid) -- might have similar issue to owls if 2 spawn at once
@@ -965,6 +1003,20 @@ function autoMarker:UNIT_MODEL_CHANGED(guid,debug_id,debug_name)
     elseif not GetRaidTargetIndex(guid) and TryPatterns(guid, patterns.sanv_netherwalker) then
       self:ApplyNextMark(guid,true) -- reverse, to hopefully leave skull/x for stalkers
       return
+    end
+
+  elseif zone == L["Timbermaw Hold"] then
+    if TryPatterns(guid, patterns.chieftain_illuminators) then
+      name = "Withermaw Illuminator"
+    elseif TryPatterns(guid, patterns.ursol_corrupters) then
+      name = "Withermaw Corrupter"
+    elseif TryPatterns(guid, patterns.chieftain_shadowkeepers) then
+      name = "Withermaw Shadowkeeper"
+    end
+
+  elseif zone == L["Onyxia's Lair"] then
+    if TryPatterns(guid, patterns.onyxia_hatchers) then
+      name = "Onyxian Hatcher"
     end
 
   elseif zone == L["Naxxramas"] or zone == L["The Upper Necropolis"] then
@@ -1085,21 +1137,30 @@ function autoMarker:ZONE_CHANGED_NEW_AREA()
   AutoMarkerDB.zone = zone
   if zone == L["Blackrock Spire"] and IsInInstance() and UnitExists("0xF13000290D104DD6") then
     UIErrorsFrame:AddMessage(L["Jed is in the instance!"],0,1,0)
-  elseif zone == L["Naxxramas"] then
-    -- enable garg checker
-    autoMarker:RegisterEvent("UNIT_FLAGS")
+  elseif zone == L["Naxxramas"] or zone == L["Ruins of Ahn'Qiraj"] then
+    autoMarker:RegisterEvent(use_nampower and "UNIT_FLAGS_GUID" or "UNIT_FLAGS")
   end
 end
 
--- scan for gargoyles going 'live'
+-- scan for unit flag changes (aggro, death, etc.)
 function autoMarker:UNIT_FLAGS(guid)
   if string.sub(guid, 3, 3) ~= "F" then return end -- only track mob guids
 
-  -- Aggroed for the first time
+  -- naxx: gargoyle aggroed for the first time
   if UnitAffectingCombat(guid) and UnitCanAttack("player", guid) and not aggro_tracker[guid] and TryPatterns(guid, patterns.naxx_plague_gargs) then
     aggro_tracker[guid] = true
     local pack, packMobs = guidToPack(guid, GetRealZoneText())
     MarkPack(packMobs or {})
+    return
+  end
+
+  -- aq20: buru egg died, store its mark for re-application on respawn
+  if UnitIsDead(guid) and TryPatterns(guid, patterns.buru_eggs) then
+    local mark = GetRaidTargetIndex(guid)
+    if mark then
+      if not AutoMarkerDB.temp_values.buru_egg_queue then AutoMarkerDB.temp_values.buru_egg_queue = {} end
+      tinsert(AutoMarkerDB.temp_values.buru_egg_queue, mark)
+    end
     return
   end
 end
